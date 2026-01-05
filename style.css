@@ -15,10 +15,10 @@
 
 /* --- Variáveis de CSS --- */
 :root {
-    --color-primary: #BFBE30;   /* Verde Oliva Claro */
-    --color-secondary: #4B4A12; /* Verde Oliva Escuro */
+    --color-primary: #BFBE30;
+    --color-secondary: #4B4A12;
     --color-white: #FFFFFF;
-    --color-bg-light: #F9F9F4;  /* Fundo Off-White */
+    --color-bg-light: #F9F9F4;
     --color-text: #4B4A12;
     
     --font-display: 'Lena', serif;
@@ -55,7 +55,7 @@ section, #tutoria, #personal, #marmitas {
 .font-lena { font-family: var(--font-display); }
 h1, h2, h3, h4 { font-family: var(--font-display); margin-bottom: 1rem; }
 
-/* --- CORREÇÃO DE ACENTOS --- */
+/* --- CORREÇÃO DE ACENTOS (Ajustado) --- */
 .fake-accent, .fake-acute, .fake-cedilla, .fake-tilde {
     position: relative;
     display: inline-block;
@@ -77,19 +77,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); margin-bottom: 1rem; }
     font-family: var(--font-body); font-size: 0.8em; font-weight: bold; color: inherit;
 }
 
+/* Ajuste Fino da Cedilha (Subindo) */
 .fake-cedilla::after {
     content: '¸';
     position: absolute;
-    bottom: 0.15em; 
+    bottom: 0.25em; /* Subiu para colar no C */
     left: 50%; transform: translateX(-50%);
     font-family: var(--font-body); font-size: 0.7em; font-weight: bold; color: inherit;
     line-height: 1;
 }
 
+/* Ajuste Fino do Til (Subindo) */
 .fake-tilde::after {
     content: '~';
     position: absolute;
-    top: -0.55em; 
+    top: -0.55em; /* Subiu */
     left: 50%; transform: translateX(-50%);
     font-family: var(--font-body); font-size: 0.7em; font-weight: bold; color: inherit;
 }
@@ -181,11 +183,10 @@ header {
 .combo-list li::before { content: '•'; color: var(--color-primary); position: absolute; left: 0; font-weight: bold; font-size: 1.2em; line-height: 1.2; }
 .service-desc { margin-bottom: 25px; font-size: 1rem; color: var(--color-secondary); line-height: 1.6; text-align: center; }
 
-/* DESCRIÇÃO DAS MARMITAS - FONTE LENA */
 .combo-desc {
     margin-bottom: 20px;
-    font-size: 1.1rem; /* Levemente maior para legibilidade */
-    font-family: var(--font-display); /* Fonte Lena */
+    font-size: 1.1rem;
+    font-family: var(--font-display);
     color: var(--color-secondary);
     font-weight: normal; 
     line-height: 1.4;
@@ -208,7 +209,7 @@ header {
 .obs-divider { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
 .obs-note-small { font-size: 0.85rem; color: var(--color-secondary); }
 
-/* --- Footer --- */
+/* --- Footer (MOVIDO PARA CIMA para evitar erros) --- */
 footer { background: var(--color-secondary); color: var(--color-white); padding: 50px 0 30px; text-align: center; }
 .footer-wrapper { display: flex; justify-content: center; align-items: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
 .footer-image img { max-width: 200px; height: auto; }
@@ -218,13 +219,65 @@ footer { background: var(--color-secondary); color: var(--color-white); padding:
 .footer-contacts i { font-size: 1.4rem; width: 25px; text-align: center; }
 .copy { font-size: 0.8rem; opacity: 0.7; }
 
-/* --- Modal --- */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(75, 74, 18, 0.8); backdrop-filter: blur(5px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+/* --- Modal (CORREÇÃO DE ROLAGEM E BORDA) --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(75, 74, 18, 0.8); 
+    backdrop-filter: blur(5px); 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
 .modal.show { display: flex; opacity: 1; }
-.modal-content { background-color: white; padding: 40px; border-radius: var(--border-radius); width: 90%; max-width: 500px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: slideUp 0.3s ease; }
-@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; color: #aaa; cursor: pointer; }
+
+.modal-content { 
+    background-color: white; 
+    border-radius: var(--border-radius); 
+    width: 90%; 
+    max-width: 500px; 
+    position: relative; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+    animation: slideUp 0.3s ease; 
+    
+    /* SEGREDINHO: Esconde o que passar do arredondamento */
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; 
+}
+
+/* Área de Rolagem Interna */
+.modal-body {
+    padding: 40px;
+    overflow-y: auto;
+    
+    /* Personalização da Barra de Rolagem (Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: #ddd transparent;
+}
+
+/* Personalização da Barra de Rolagem (Chrome/Edge/Safari) */
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 10px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; color: #aaa; cursor: pointer; z-index: 10; }
 .close-btn:hover { color: var(--color-secondary); }
+
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
 /* --- Formulário --- */
 .form-group { margin-bottom: 15px; }
@@ -235,10 +288,18 @@ input:focus, textarea:focus { outline: none; border-color: var(--color-primary);
 
 /* --- Responsivo --- */
 @media (max-width: 768px) {
+    .logo-img { max-width: 60vw; height: auto; }
     .header-container { padding: 0 10px; }
     .hero h2 { font-size: 2rem; }
-    .section-header h2 { font-size: 2.5rem; } .section-header p { font-size: 1.1rem; }
+    .section-header h2 { font-size: 2rem; } 
+    .section-header p { font-size: 1.1rem; }
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
     .footer-wrapper { flex-direction: column; gap: 20px; } .footer-contacts { align-items: center; }
-    .modal-content { padding: 25px; } .form-row { flex-direction: column; gap: 0; }
+    
+    /* Ajuste Modal Mobile */
+    .modal-content { width: 95%; max-height: 85vh; } 
+    .modal-body { padding: 25px; }
+    
+    .form-row { flex-direction: column; gap: 0; }
+    .obs-container h3 { font-size: 1.8rem; }
 }

@@ -133,7 +133,9 @@ Observações: ${obs ? obs : 'Nenhuma'}`;
 
         // Codifica para URL
         const encodedMessage = encodeURIComponent(finalMessage);
-        const whatsappNumber = "5581997346237";
+        
+        // NÚMERO ATUALIZADO
+        const whatsappNumber = "558196104597";
 
         // Abre o WhatsApp
         window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');

@@ -16,7 +16,6 @@
         <button id="close-menu-btn" class="close-menu-btn">&times;</button>
         
         <div class="side-menu-content">
-            
             <ul class="nav-links">
                 <li><a href="#" id="link-personal" class="menu-link">Personal Chef</a></li>
                 <li><a href="#" id="link-tutoria" class="menu-link">Tutoria Gastronômica</a></li>
@@ -24,7 +23,7 @@
             </ul>
 
             <div class="menu-socials">
-                <a href="https://wa.me/5581997346237?text=Ol%C3%A1%2C%20Chef%21" target="_blank" class="menu-contact-btn whatsapp-link">
+                <a href="https://wa.me/558196104597?text=Ol%C3%A1%2C%20Chef%21" target="_blank" class="menu-contact-btn whatsapp-link">
                     <i class="fab fa-whatsapp"></i> Fale com o Chef
                 </a>
                 <a href="https://www.instagram.com/chefbrunolins" target="_blank" class="menu-contact-btn instagram-link">
@@ -65,7 +64,7 @@
                     <div class="combo-details">
                         <h3 class="font-lena color-secondary card-title">Personal Chef</h3>
                         <p class="service-desc">Leve a alta gastronomia para o conforto da sua casa. Jantares exclusivos, eventos intimistas e uma experiência inesquecível preparada especialmente para você e seus convidados.</p>
-                        <button class="btn btn-primary full-width" onclick="openModal('Personal Chef')">Solicitar Personal Chef</button>
+                        <button class="btn btn-primary full-width" onclick="openModal('Personal Chef')">Solicitar Personal</button>
                     </div>
                 </div>
 
@@ -95,7 +94,6 @@
                         <p class="combo-desc font-lena">
                             Para aqueles dias em que voc<span class="fake-accent">e</span> quer transformar o almo<span class="fake-cedilla">c</span>o de rotina em uma experi<span class="fake-accent">e</span>ncia gastron<span class="fake-accent">o</span>mica.
                         </p>
-                        
                         <ul class="combo-list">
                             <li>Filé ao molho de gorgonzola, purê de batatas e legumes salteados</li>
                             <li>Lasanha de ragu de ossobuco</li>
@@ -113,7 +111,6 @@
                         <p class="combo-desc font-lena">
                             Manter a dieta on nunca foi t<span class="fake-tilde">a</span>o gostoso. Pratos leves e equilibrados, pensados para quem quer manter o foco com a sa<span class="fake-acute">u</span>de.
                         </p>
-
                         <ul class="combo-list">
                             <li>Yakissoba de frango com espaguete de legumes</li>
                             <li>Escondidinho de carne com purê de jerimum</li>
@@ -131,7 +128,6 @@
                         <p class="combo-desc font-lena">
                             Aquela comida que abra<span class="fake-cedilla">c</span>a e alimenta. Cl<span class="fake-acute">a</span>ssicos rotineiros com o toque do chef.
                         </p>
-
                         <ul class="combo-list">
                             <li>Strogonoff de carne ou frango, arroz branco e batatas coradas</li>
                             <li>Frango suculento, arroz, feijão e legumes</li>
@@ -182,14 +178,14 @@
         <div class="container">
             <div class="footer-wrapper">
                 <div class="footer-image">
-                    <img src="img/BL1.png" alt="Chef Bruno Lins Logo">
+                    <img src="img/BL1.PNG" alt="Chef Bruno Lins Logo">
                 </div>
                 <div class="footer-contacts">
                     <a href="https://instagram.com/chefbrunolins" target="_blank">
                         <i class="fab fa-instagram"></i> @chefbrunolins
                     </a>
-                    <a href="https://wa.me/5581997346237" target="_blank">
-                        <i class="fab fa-whatsapp"></i> (81) 99734-6237
+                    <a href="https://wa.me/558196104597" target="_blank">
+                        <i class="fab fa-whatsapp"></i> (81) 99610-4597
                     </a>
                 </div>
             </div>
@@ -200,41 +196,43 @@
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 class="font-lena color-secondary" id="modalTitle">Finalizar Pedido</h3>
-            <p id="modalSubtitle">Preencha seus dados para enviar ao Chef via WhatsApp.</p>
-            <form id="wppForm">
-                <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" required placeholder="Seu nome">
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Telefone (WhatsApp)</label>
-                    <input type="tel" id="telefone" required placeholder="(81) 99999-9999" maxlength="15">
-                </div>
-                <div class="form-group">
-                    <label for="endereco">Endereço de Entrega</label>
-                    <input type="text" id="endereco" required placeholder="Rua, Número, Bairro">
-                </div>
-                <div class="form-row">
+            
+            <div class="modal-body">
+                <h3 class="font-lena color-secondary" id="modalTitle">Finalizar Pedido</h3>
+                <p id="modalSubtitle">Preencha seus dados para enviar ao Chef via WhatsApp.</p>
+                <form id="wppForm">
                     <div class="form-group">
-                        <label for="data">Data</label>
-                        <input type="date" id="data" required>
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" required placeholder="Seu nome">
                     </div>
                     <div class="form-group">
-                        <label for="horario">Horário</label>
-                        <input type="time" id="horario" required>
+                        <label for="telefone">Telefone (WhatsApp)</label>
+                        <input type="tel" id="telefone" required placeholder="(81) 99999-9999" maxlength="15">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="obs">Observações</label>
-                    <textarea id="obs" rows="3" placeholder="Ex: Retirar cebola, alergias, etc."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary full-width">Solicitar ao Chef</button>
-            </form>
+                    <div class="form-group">
+                        <label for="endereco">Endereço de Entrega</label>
+                        <input type="text" id="endereco" required placeholder="Rua, Número, Bairro">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data">Data</label>
+                            <input type="date" id="data" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="horario">Horário</label>
+                            <input type="time" id="horario" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="obs">Observações</label>
+                        <textarea id="obs" rows="3" placeholder="Ex: Retirar cebola, alergias, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">Solicitar ao Chef</button>
+                </form>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
