@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chef Bruno Lins - Soluções Gastronômicas. Tutoria, Personal Chef e Marmitas Gourmet.">
+    <title>Chef Bruno Lins | Soluções Gastronômicas</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="side-menu" class="side-menu">
+        <button id="close-menu-btn" class="close-menu-btn">&times;</button>
+        
+        <div class="side-menu-content">
+            
+            <ul class="nav-links">
+                <li><a href="#" id="link-personal" class="menu-link">Personal Chef</a></li>
+                <li><a href="#" id="link-tutoria" class="menu-link">Tutoria Gastronômica</a></li>
+                <li><a href="#marmitas" id="link-marmitas" class="menu-link">Marmitas</a></li>
+            </ul>
+
+            <div class="menu-socials">
+                <a href="https://wa.me/5581997346237?text=Ol%C3%A1%2C%20Chef%21" target="_blank" class="menu-contact-btn whatsapp-link">
+                    <i class="fab fa-whatsapp"></i> Fale com o Chef
+                </a>
+                <a href="https://www.instagram.com/chefbrunolins" target="_blank" class="menu-contact-btn instagram-link">
+                    <i class="fab fa-instagram"></i> Nos siga nas redes
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="header">
+        <div class="container header-container">
+            <div class="header-left">
+                <button id="mobile-menu-btn" class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="logo-img-container">
+                    <img src="img/BL0.png" alt="Logo Chef Bruno Lins" class="logo-img">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content"></div>
+    </section>
+
+    <section id="servicos" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="font-lena color-secondary">Nossos Servi<span class="fake-cedilla">c</span>os</h2>
+                <p>Leve o sabor e o saber da alta gastronomia para sua casa.</p>
+            </div>
+
+            <div class="grid-2">
+                <div id="personal" class="combo-card">
+                    <img src="img/personal.png" alt="Personal Chef" class="combo-img">
+                    <div class="combo-details">
+                        <h3 class="font-lena color-secondary card-title">Personal Chef</h3>
+                        <p class="service-desc">Leve a alta gastronomia para o conforto da sua casa. Jantares exclusivos, eventos intimistas e uma experiência inesquecível preparada especialmente para você e seus convidados.</p>
+                        <button class="btn btn-primary full-width" onclick="openModal('Personal Chef')">Solicitar Personal Chef</button>
+                    </div>
+                </div>
+
+                <div id="tutoria" class="combo-card">
+                    <img src="img/tutoria.png" alt="Tutoria Gastronômica" class="combo-img">
+                    <div class="combo-details">
+                        <h3 class="font-lena color-secondary card-title">Tutoria Gastron<span class="fake-accent">o</span>mica</h3>
+                        <p class="service-desc">Aprenda técnicas exclusivas e desenvolva suas habilidades culinárias com acompanhamento personalizado do Chef. Ideal para quem deseja dominar a cozinha com segurança e criatividade.</p>
+                        <button class="btn btn-primary full-width" onclick="openModal('Tutoria')">Solicitar Tutoria</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="marmitas" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="font-lena color-secondary">Nossas Marmitas</h2>
+                <p>Já escolheu qual combo combina mais com a sua fome?</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="combo-card">
+                    <img src="img/FDC.png" alt="Combo Favoritos do Chef" class="combo-img">
+                    <div class="combo-details">
+                        <p class="combo-desc font-lena">
+                            Para aqueles dias em que voc<span class="fake-accent">e</span> quer transformar o almo<span class="fake-cedilla">c</span>o de rotina em uma experi<span class="fake-accent">e</span>ncia gastron<span class="fake-accent">o</span>mica.
+                        </p>
+                        
+                        <ul class="combo-list">
+                            <li>Filé ao molho de gorgonzola, purê de batatas e legumes salteados</li>
+                            <li>Lasanha de ragu de ossobuco</li>
+                            <li>Salmão grelhado, legumes ao perfume cítrico e purê de batata-doce</li>
+                            <li>Camarões grelhados ao perfume cítrico, massa ao molho sugo</li>
+                            <li>Frango ao molho de mostarda, arroz jasmine e legumes</li>
+                        </ul>
+                        <button class="btn btn-primary full-width" onclick="openModal('Combo Favoritos do Chef')">Pedir este Combo</button>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <img src="img/ODN.png" alt="Combo Orgulho da Nutri" class="combo-img">
+                    <div class="combo-details">
+                        <p class="combo-desc font-lena">
+                            Manter a dieta on nunca foi t<span class="fake-tilde">a</span>o gostoso. Pratos leves e equilibrados, pensados para quem quer manter o foco com a sa<span class="fake-acute">u</span>de.
+                        </p>
+
+                        <ul class="combo-list">
+                            <li>Yakissoba de frango com espaguete de legumes</li>
+                            <li>Escondidinho de carne com purê de jerimum</li>
+                            <li>Peixe ao perfume de ervas, purê de batata-doce e legumes</li>
+                            <li>Iscas de frango ao pesto, massa integral e legumes</li>
+                            <li>Frango com salada de grão-de-bico (legumes e grão-de-bico)</li>
+                        </ul>
+                        <button class="btn btn-primary full-width" onclick="openModal('Combo Orgulho da Nutri')">Pedir este Combo</button>
+                    </div>
+                </div>
+
+                <div class="combo-card">
+                    <img src="img/DAD.png" alt="Combo Dia a Dia" class="combo-img">
+                    <div class="combo-details">
+                        <p class="combo-desc font-lena">
+                            Aquela comida que abra<span class="fake-cedilla">c</span>a e alimenta. Cl<span class="fake-acute">a</span>ssicos rotineiros com o toque do chef.
+                        </p>
+
+                        <ul class="combo-list">
+                            <li>Strogonoff de carne ou frango, arroz branco e batatas coradas</li>
+                            <li>Frango suculento, arroz, feijão e legumes</li>
+                            <li>Peixe ao molho de tomate, arroz, purê e legumes</li>
+                            <li>Bife acebolado, arroz, feijão e legumes</li>
+                            <li>Carne de panela, arroz e legumes</li>
+                        </ul>
+                        <button class="btn btn-primary full-width" onclick="openModal('Combo Dia a Dia')">Pedir este Combo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="marmitas-obs">
+                <div class="obs-container">
+                    <h3 class="font-lena color-secondary">Informa<span class="fake-cedilla">c</span><span class="fake-tilde">o</span>es Importantes</h3>
+                    
+                    <div class="obs-grid">
+                        <div class="obs-box">
+                            <h4><i class="fas fa-scale-balanced"></i> Peso Total 350g</h4>
+                            <ul>
+                                <li><strong>150g</strong> carboidratos</li>
+                                <li><strong>120g</strong> proteína</li>
+                                <li><strong>80g</strong> legumes</li>
+                            </ul>
+                        </div>
+
+                        <div class="obs-box">
+                            <h4><i class="fas fa-clock"></i> Pedidos & Entrega</h4>
+                            <p>Pedidos até as <strong>18h</strong> entram em produção no dia seguinte.</p>
+                            <p class="obs-highlight">Prazo de entrega padrão: <strong>até 48h</strong></p>
+                        </div>
+
+                        <div class="obs-box">
+                            <h4><i class="fas fa-wallet"></i> Pagamento</h4>
+                            <p><strong>PIX</strong></p>
+                            <p><strong>Cartão</strong> - <em>Em breve</em></p>
+                            <hr class="obs-divider">
+                            <p class="obs-note-small"><strong>Adaptações disponíveis mediante consulta.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="footer-image">
+                    <img src="img/BL1.PNG" alt="Chef Bruno Lins Logo">
+                </div>
+                <div class="footer-contacts">
+                    <a href="https://instagram.com/chefbrunolins" target="_blank">
+                        <i class="fab fa-instagram"></i> @chefbrunolins
+                    </a>
+                    <a href="https://wa.me/5581997346237" target="_blank">
+                        <i class="fab fa-whatsapp"></i> (81) 99734-6237
+                    </a>
+                </div>
+            </div>
+            <p class="copy">&copy; 2026 Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 class="font-lena color-secondary" id="modalTitle">Finalizar Pedido</h3>
+            <p id="modalSubtitle">Preencha seus dados para enviar ao Chef via WhatsApp.</p>
+            <form id="wppForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone (WhatsApp)</label>
+                    <input type="tel" id="telefone" required placeholder="(81) 99999-9999" maxlength="15">
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço de Entrega</label>
+                    <input type="text" id="endereco" required placeholder="Rua, Número, Bairro">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" id="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="horario">Horário</label>
+                        <input type="time" id="horario" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="obs">Observações</label>
+                    <textarea id="obs" rows="3" placeholder="Ex: Retirar cebola, alergias, etc."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Solicitar ao Chef</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
