@@ -31,7 +31,6 @@ if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
 
 /* --- Lógica de Ação dos Links do Menu --- */
 
-// Link Personal Chef: Abre Modal e Fecha Menu
 if (linkPersonal) {
     linkPersonal.addEventListener('click', (e) => {
         e.preventDefault(); 
@@ -40,23 +39,20 @@ if (linkPersonal) {
     });
 }
 
-// Link Tutoria: Abre Modal e Fecha Menu
 if (linkTutoria) {
     linkTutoria.addEventListener('click', (e) => {
         e.preventDefault(); 
         closeMenu();
-        openModal('Tutoria');
+        openModal('Tutoria Gastronômica');
     });
 }
 
-// Link Marmitas: Fecha o menu (comportamento padrão de rolagem)
 if (linkMarmitas) {
     linkMarmitas.addEventListener('click', () => {
         closeMenu();
     });
 }
 
-// Fecha o menu ao clicar nos botões de contato (WhatsApp/Instagram)
 menuContactBtns.forEach(btn => {
     btn.addEventListener('click', closeMenu);
 });
@@ -65,7 +61,13 @@ menuContactBtns.forEach(btn => {
 
 function openModal(serviceName) {
     currentService = serviceName;
-    modalTitle.innerText = serviceName;
+
+    // Lógica para corrigir o acento "ô" da fonte Lena no Popup
+    if (serviceName === "Tutoria Gastronômica") {
+        modalTitle.innerHTML = 'Tutoria Gastron<span class="fake-accent">o</span>mica';
+    } else {
+        modalTitle.innerText = serviceName;
+    }
     
     if (serviceName.includes("Combo")) {
         modalSubtitle.innerText = "Preencha seus dados para verificar a disponibilidade desta marmita.";
@@ -99,28 +101,25 @@ if (phoneInput) {
 /* --- Envio para WhatsApp --- */
 if (wppForm) {
     wppForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Impede o reload da página
+        e.preventDefault(); 
 
-        // Captura os dados
         const nome = document.getElementById('nome').value;
         const telefone = document.getElementById('telefone').value;
         const endereco = document.getElementById('endereco').value;
-        const data = document.getElementById('data').value.split('-').reverse().join('/'); // Formata para PT-BR
+        const data = document.getElementById('data').value.split('-').reverse().join('/'); 
         const horario = document.getElementById('horario').value;
         const obs = document.getElementById('obs').value;
 
-        // Define a mensagem base conforme o tipo de serviço
         let textStart = "";
         if (currentService.includes("Combo")) {
             const comboName = currentService.replace("Combo ", ""); 
             textStart = `Olá, Chef. Gostaria de verificar sobre a disponibilidade da produção de combo de marmita *${comboName}*.`;
-        } else if (currentService === "Tutoria") {
-            textStart = `Olá, Chef. Gostaria de verificar sobre o serviço de *Tutoria*.`;
+        } else if (currentService === "Tutoria Gastronômica") {
+            textStart = `Olá, Chef. Gostaria de verificar sobre o serviço de *Tutoria Gastronômica*.`;
         } else if (currentService === "Personal Chef") {
             textStart = `Olá, Chef. Gostaria de verificar sobre o serviço de *personal chefe*.`;
         }
 
-        // Monta a mensagem final
         const finalMessage = `${textStart}
         
 *Meus Dados:*
@@ -131,16 +130,11 @@ Data desejada: ${data}
 Horário: ${horario}
 Observações: ${obs ? obs : 'Nenhuma'}`;
 
-        // Codifica para URL
         const encodedMessage = encodeURIComponent(finalMessage);
-        
-        // NÚMERO ATUALIZADO
         const whatsappNumber = "558196104597";
 
-        // Abre o WhatsApp
         window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
 
-        // Opcional: Fechar modal e limpar formulário
         closeModal();
         wppForm.reset();
     });

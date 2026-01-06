@@ -55,7 +55,7 @@ section, #tutoria, #personal, #marmitas {
 .font-lena { font-family: var(--font-display); }
 h1, h2, h3, h4 { font-family: var(--font-display); margin-bottom: 1rem; }
 
-/* --- CORREÇÃO DE ACENTOS (Ajustado) --- */
+/* --- CORREÇÃO DE ACENTOS --- */
 .fake-accent, .fake-acute, .fake-cedilla, .fake-tilde {
     position: relative;
     display: inline-block;
@@ -77,21 +77,19 @@ h1, h2, h3, h4 { font-family: var(--font-display); margin-bottom: 1rem; }
     font-family: var(--font-body); font-size: 0.8em; font-weight: bold; color: inherit;
 }
 
-/* Ajuste Fino da Cedilha (Subindo) */
 .fake-cedilla::after {
     content: '¸';
     position: absolute;
-    bottom: 0.25em; /* Subiu para colar no C */
+    bottom: 0.25em; /* Ajuste para colar no C */
     left: 50%; transform: translateX(-50%);
     font-family: var(--font-body); font-size: 0.7em; font-weight: bold; color: inherit;
     line-height: 1;
 }
 
-/* Ajuste Fino do Til (Subindo) */
 .fake-tilde::after {
     content: '~';
     position: absolute;
-    top: -0.55em; /* Subiu */
+    top: -0.55em; 
     left: 50%; transform: translateX(-50%);
     font-family: var(--font-body); font-size: 0.7em; font-weight: bold; color: inherit;
 }
@@ -209,7 +207,7 @@ header {
 .obs-divider { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
 .obs-note-small { font-size: 0.85rem; color: var(--color-secondary); }
 
-/* --- Footer (MOVIDO PARA CIMA para evitar erros) --- */
+/* --- Footer --- */
 footer { background: var(--color-secondary); color: var(--color-white); padding: 50px 0 30px; text-align: center; }
 .footer-wrapper { display: flex; justify-content: center; align-items: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
 .footer-image img { max-width: 200px; height: auto; }
@@ -219,7 +217,7 @@ footer { background: var(--color-secondary); color: var(--color-white); padding:
 .footer-contacts i { font-size: 1.4rem; width: 25px; text-align: center; }
 .copy { font-size: 0.8rem; opacity: 0.7; }
 
-/* --- Modal (CORREÇÃO DE ROLAGEM E BORDA) --- */
+/* --- Modal --- */
 .modal { 
     display: none; 
     position: fixed; 
@@ -244,7 +242,7 @@ footer { background: var(--color-secondary); color: var(--color-white); padding:
     box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
     animation: slideUp 0.3s ease; 
     
-    /* SEGREDINHO: Esconde o que passar do arredondamento */
+    /* Esconde rolagem externa para não cortar borda */
     overflow: hidden; 
     display: flex;
     flex-direction: column;
@@ -255,23 +253,19 @@ footer { background: var(--color-secondary); color: var(--color-white); padding:
 .modal-body {
     padding: 40px;
     overflow-y: auto;
-    
-    /* Personalização da Barra de Rolagem (Firefox) */
     scrollbar-width: thin;
     scrollbar-color: #ddd transparent;
 }
 
-/* Personalização da Barra de Rolagem (Chrome/Edge/Safari) */
-.modal-body::-webkit-scrollbar {
-    width: 6px;
-}
-.modal-body::-webkit-scrollbar-track {
-    background: transparent;
-    margin-block: 10px;
-}
-.modal-body::-webkit-scrollbar-thumb {
-    background-color: #ddd;
-    border-radius: 10px;
+.modal-body::-webkit-scrollbar { width: 6px; }
+.modal-body::-webkit-scrollbar-track { background: transparent; margin-block: 10px; }
+.modal-body::-webkit-scrollbar-thumb { background-color: #ddd; border-radius: 10px; }
+
+/* Espaçamento do Subtítulo no Modal */
+#modalSubtitle {
+    margin-bottom: 25px;
+    font-size: 1rem;
+    color: var(--color-secondary);
 }
 
 .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; color: #aaa; cursor: pointer; z-index: 10; }
@@ -296,10 +290,14 @@ input:focus, textarea:focus { outline: none; border-color: var(--color-primary);
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
     .footer-wrapper { flex-direction: column; gap: 20px; } .footer-contacts { align-items: center; }
     
-    /* Ajuste Modal Mobile */
     .modal-content { width: 95%; max-height: 85vh; } 
     .modal-body { padding: 25px; }
-    
     .form-row { flex-direction: column; gap: 0; }
     .obs-container h3 { font-size: 1.8rem; }
+
+    /* CORREÇÃO DOS ACENTOS MOBILE */
+    .fake-cedilla::after { bottom: 0.15em; }
+    .fake-tilde::after { top: -0.45em; }
+    .fake-accent::after { top: -0.1em; }
+    .fake-acute::after { top: -0.12em; }
 }
