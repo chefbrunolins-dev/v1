@@ -17,16 +17,16 @@
         
         <div class="side-menu-content">
             <ul class="nav-links">
-                <li><a href="#" id="link-personal" class="menu-link">Personal Chef</a></li>
-                <li><a href="#" id="link-tutoria" class="menu-link">Tutoria Gastronômica</a></li>
+                <li><a href="#" id="menu-personal" class="menu-link">Personal Chef</a></li>
+                <li><a href="#" id="menu-tutoria" class="menu-link">Tutoria Gastronômica</a></li>
                 <li class="dropdown-item">
                     <a href="#" id="link-marmitas-toggle" class="menu-link flex-between">
                         Marmitas <i class="fas fa-chevron-down arrow-icon"></i>
                     </a>
                     <ul class="submenu" id="marmitas-submenu">
-                        <li><a href="#" id="sub-fdc">Favoritos do Chef</a></li>
-                        <li><a href="#" id="sub-odn">Orgulho da Nutri</a></li>
-                        <li><a href="#" id="sub-dad">Dia a Dia</a></li>
+                        <li><a href="#" id="menu-fdc">Favoritos do Chef</a></li>
+                        <li><a href="#" id="menu-odn">Orgulho da Nutri</a></li>
+                        <li><a href="#" id="menu-dad">Dia a Dia</a></li>
                     </ul>
                 </li>
             </ul>
@@ -63,26 +63,26 @@
     <section id="servicos" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <h2 class="font-lena color-secondary">Nossos Servi<span class="fake-cedilla">c</span>os</h2>
+                <h2 class="font-lena color-secondary">Nossos <span class="no-break">Servi<span class="fake-cedilla">c</span>os</span></h2>
                 <p>Leve o sabor e o saber da alta gastronomia para sua casa.</p>
             </div>
 
             <div class="grid-2">
-                <div id="personal" class="combo-card">
+                <div class="combo-card">
                     <img src="img/personal.png" alt="Personal Chef" class="combo-img">
                     <div class="combo-details">
                         <h3 class="font-lena color-secondary card-title">Personal Chef</h3>
                         <p class="service-desc">Leve a alta gastronomia para o conforto da sua casa. Jantares exclusivos, eventos intimistas e uma experiência inesquecível preparada especialmente para você e seus convidados.</p>
-                        <button class="btn btn-primary full-width" onclick="openModal('Personal Chef')">Solicitar Personal</button>
+                        <button class="btn btn-primary full-width" onclick="openOrderModal('Personal Chef')">Solicitar Personal</button>
                     </div>
                 </div>
 
-                <div id="tutoria" class="combo-card">
+                <div class="combo-card">
                     <img src="img/tutoria.png" alt="Tutoria Gastronômica" class="combo-img">
                     <div class="combo-details">
-                        <h3 class="font-lena color-secondary card-title">Tutoria Gastron<span class="fake-accent">o</span>mica</h3>
+                        <h3 class="font-lena color-secondary card-title title-tutoria">Tutoria <span class="no-break">Gastron<span class="fake-accent">o</span>mica</span></h3>
                         <p class="service-desc">Aprenda técnicas exclusivas e desenvolva suas habilidades culinárias com acompanhamento personalizado do Chef. Ideal para quem deseja dominar a cozinha com segurança e criatividade.</p>
-                        <button class="btn btn-primary full-width" onclick="openModal('Tutoria Gastronômica')">Solicitar Tutoria</button>
+                        <button class="btn btn-primary full-width" onclick="openOrderModal('Tutoria Gastronômica')">Solicitar Tutoria</button>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                     <img src="img/FDC.png" alt="Combo Favoritos do Chef" class="combo-img">
                     <div class="combo-details">
                         <p class="combo-desc font-lena">
-                            Para aqueles dias em que voc<span class="fake-accent">e</span> quer transformar o almo<span class="fake-cedilla">c</span>o de rotina em uma experi<span class="fake-accent">e</span>ncia gastron<span class="fake-accent">o</span>mica.
+                            Para aqueles dias em que <span class="no-break">voc<span class="fake-accent">e</span></span> quer transformar o <span class="no-break">almo<span class="fake-cedilla">c</span>o</span> de rotina em uma <span class="no-break">experi<span class="fake-accent">e</span>ncia</span> <span class="no-break">gastron<span class="fake-accent">o</span>mica</span>.
                         </p>
                         <ul class="combo-list">
                             <li>Filé ao molho de gorgonzola, purê de batatas e legumes salteados</li>
@@ -110,7 +110,7 @@
                             <li>Camarões grelhados ao perfume cítrico, massa ao molho sugo</li>
                             <li>Frango ao molho de mostarda, arroz jasmine e legumes</li>
                         </ul>
-                        <button class="btn btn-primary full-width" onclick="openModal('Combo Favoritos do Chef')">Pedir este Combo</button>
+                        <button class="btn btn-primary full-width" onclick="openOrderModal('Combo Favoritos do Chef')">Pedir este Combo</button>
                     </div>
                 </div>
 
@@ -118,7 +118,7 @@
                     <img src="img/ODN.png" alt="Combo Orgulho da Nutri" class="combo-img">
                     <div class="combo-details">
                         <p class="combo-desc font-lena">
-                            Manter a dieta on nunca foi t<span class="fake-tilde">a</span>o gostoso. Pratos leves e equilibrados, pensados para quem quer manter o foco com a sa<span class="fake-acute">u</span>de.
+                            Manter a dieta on nunca foi <span class="no-break">t<span class="fake-tilde">a</span>o</span> gostoso. Pratos leves e equilibrados, pensados para quem quer manter o foco com a <span class="no-break">sa<span class="fake-acute">u</span>de</span>.
                         </p>
                         <ul class="combo-list">
                             <li>Yakissoba de frango com espaguete de legumes</li>
@@ -127,7 +127,7 @@
                             <li>Iscas de frango ao pesto, massa integral e legumes</li>
                             <li>Frango com salada de grão-de-bico (legumes e grão-de-bico)</li>
                         </ul>
-                        <button class="btn btn-primary full-width" onclick="openModal('Combo Orgulho da Nutri')">Pedir este Combo</button>
+                        <button class="btn btn-primary full-width" onclick="openOrderModal('Combo Orgulho da Nutri')">Pedir este Combo</button>
                     </div>
                 </div>
 
@@ -135,7 +135,7 @@
                     <img src="img/DAD.png" alt="Combo Dia a Dia" class="combo-img">
                     <div class="combo-details">
                         <p class="combo-desc font-lena">
-                            Aquela comida que abra<span class="fake-cedilla">c</span>a e alimenta. Cl<span class="fake-acute">a</span>ssicos rotineiros com o toque do chef.
+                            Aquela comida que <span class="no-break">abra<span class="fake-cedilla">c</span>a</span> e alimenta. <span class="no-break">Cl<span class="fake-acute">a</span>ssicos</span> rotineiros com o toque do chef.
                         </p>
                         <ul class="combo-list">
                             <li>Strogonoff de carne ou frango, arroz branco e batatas coradas</li>
@@ -144,14 +144,14 @@
                             <li>Bife acebolado, arroz, feijão e legumes</li>
                             <li>Carne de panela, arroz e legumes</li>
                         </ul>
-                        <button class="btn btn-primary full-width" onclick="openModal('Combo Dia a Dia')">Pedir este Combo</button>
+                        <button class="btn btn-primary full-width" onclick="openOrderModal('Combo Dia a Dia')">Pedir este Combo</button>
                     </div>
                 </div>
             </div>
 
             <div class="marmitas-obs">
                 <div class="obs-container">
-                    <h3 class="font-lena color-secondary">Informa<span class="fake-cedilla">c</span><span class="fake-tilde">o</span>es Importantes</h3>
+                    <h3 class="font-lena color-secondary"><span class="no-break">Informa<span class="fake-cedilla">c</span><span class="fake-tilde">o</span>es</span> Importantes</h3>
                     
                     <div class="obs-grid">
                         <div class="obs-box">
@@ -187,7 +187,7 @@
         <div class="container">
             <div class="footer-wrapper">
                 <div class="footer-image">
-                    <img src="img/BL1.png" alt="Chef Bruno Lins Logo">
+                    <img src="img/BL1.PNG" alt="Chef Bruno Lins Logo">
                 </div>
                 <div class="footer-contacts">
                     <a href="https://instagram.com/chefbrunolins" target="_blank">
@@ -202,10 +202,25 @@
         </div>
     </footer>
 
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeDetailsModal()">&times;</span>
+            <div class="modal-body">
+                <img id="detail-img" src="" alt="Detalhe do Serviço" class="detail-main-img">
+                
+                <h3 class="font-lena color-secondary" id="detail-title"></h3>
+                
+                <div id="detail-desc" class="detail-description-content">
+                    </div>
+
+                <button id="btn-proceed-order" class="btn btn-primary full-width mt-3">Solicitar</button>
+            </div>
+        </div>
+    </div>
+
     <div id="orderModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            
+            <span class="close-btn" onclick="closeOrderModal()">&times;</span>
             <div class="modal-body">
                 <h3 class="font-lena color-secondary" id="modalTitle">Finalizar Pedido</h3>
                 <p id="modalSubtitle">Preencha seus dados para enviar ao Chef via WhatsApp.</p>

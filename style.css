@@ -55,6 +55,12 @@ section, #tutoria, #personal, #marmitas {
 .font-lena { font-family: var(--font-display); }
 h1, h2, h3, h4 { font-family: var(--font-display); margin-bottom: 1rem; }
 
+/* CLASSE PARA NÃO QUEBRAR PALAVRAS NO MEIO */
+.no-break {
+    white-space: nowrap;
+    display: inline-block;
+}
+
 /* --- CORREÇÃO DE ACENTOS --- */
 .fake-accent, .fake-acute, .fake-cedilla, .fake-tilde {
     position: relative;
@@ -190,8 +196,10 @@ header {
 
 .card-title { font-size: 2.1rem; margin-bottom: 15px; text-align: center; }
 
+/* GRID PADRÃO DESKTOP */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: stretch; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; align-items: stretch; }
+
 .combo-list { list-style: none; margin-bottom: 25px; text-align: left; }
 .combo-list li { margin-bottom: 10px; padding-left: 20px; position: relative; font-size: 0.9rem; color: var(--color-secondary); line-height: 1.4; }
 .combo-list li::before { content: '•'; color: var(--color-primary); position: absolute; left: 0; font-weight: bold; font-size: 1.2em; line-height: 1.2; }
@@ -257,18 +265,16 @@ footer { background: var(--color-secondary); color: var(--color-white); padding:
     position: relative; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
     animation: slideUp 0.3s ease; 
-    
-    /* SEGREDINHO: Esconde o que passar do arredondamento */
     overflow: hidden; 
     display: flex;
     flex-direction: column;
     max-height: 90vh; 
 }
 
-/* Área de Rolagem Interna - Espaço no topo para o botão X */
+/* Área de Rolagem Interna */
 .modal-body {
     position: relative;
-    padding: 60px 40px 40px 40px; /* Aumentei o Top para 60px */
+    padding: 60px 40px 40px 40px; 
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #ddd transparent;
@@ -278,13 +284,27 @@ footer { background: var(--color-secondary); color: var(--color-white); padding:
 .modal-body::-webkit-scrollbar-track { background: transparent; margin-block: 10px; }
 .modal-body::-webkit-scrollbar-thumb { background-color: #ddd; border-radius: 10px; }
 
+/* Imagem dentro do modal de detalhes */
+.detail-main-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-description-content {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    line-height: 1.6;
+    text-align: left;
+}
+
 #modalSubtitle {
     margin-bottom: 25px;
     font-size: 1rem;
     color: var(--color-secondary);
 }
 
-/* Botão Fechar - Fixo no canto superior direito do CARTÃO */
 .close-btn { 
     position: absolute; 
     top: 15px; 
@@ -294,7 +314,6 @@ footer { background: var(--color-secondary); color: var(--color-white); padding:
     color: #aaa; 
     cursor: pointer; 
     z-index: 10; 
-    /* Isso garante que ele fique sobre o modal content */
 }
 .close-btn:hover { color: var(--color-secondary); }
 
@@ -307,21 +326,36 @@ label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: var(--colo
 input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; color: var(--color-secondary); }
 input:focus, textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(191, 190, 48, 0.2); }
 
-/* --- Responsivo --- */
-@media (max-width: 768px) {
+/* --- RESPONSIVIDADE (TABLET E MOBILE) --- */
+/* Força 1 coluna em qualquer tela menor que 1024px */
+@media (max-width: 1024px) {
+    .grid-2, .grid-3 { 
+        grid-template-columns: 1fr; 
+        max-width: 600px; 
+        margin: 0 auto;   
+    }
+
+    .title-tutoria {
+        white-space: normal;
+        font-size: 2.2rem;
+    }
+    
     .logo-img { max-width: 60vw; height: auto; }
     .header-container { padding: 0 10px; }
+    
     .hero h2 { font-size: 2rem; }
     .section-header h2 { font-size: 2rem; } 
     .section-header p { font-size: 1.1rem; }
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .footer-wrapper { flex-direction: column; gap: 20px; } .footer-contacts { align-items: center; }
+    
+    .footer-wrapper { flex-direction: column; gap: 20px; } 
+    .footer-contacts { align-items: center; }
     
     .modal-content { width: 95%; max-height: 85vh; } 
-    .modal-body { padding: 60px 25px 25px 25px; } /* Mantém o top padding no mobile */
+    .modal-body { padding: 60px 25px 25px 25px; } 
     .form-row { flex-direction: column; gap: 0; }
     .obs-container h3 { font-size: 1.8rem; }
 
+    /* Ajuste acentos mobile */
     .fake-cedilla::after { bottom: 0.15em; }
     .fake-tilde::after { top: -0.45em; }
     .fake-accent::after { top: -0.1em; }
