@@ -16,6 +16,13 @@ const linkTutoria = document.getElementById('link-tutoria');
 const linkMarmitas = document.getElementById('link-marmitas');
 const menuContactBtns = document.querySelectorAll('.menu-contact-btn');
 
+const marmitasToggle = document.getElementById('link-marmitas-toggle');
+const marmitasSubmenu = document.getElementById('marmitas-submenu');
+const subFdc = document.getElementById('sub-fdc');
+const subOdn = document.getElementById('sub-odn');
+const subDad = document.getElementById('sub-dad');
+const dropdownItem = document.querySelector('.dropdown-item');
+
 /* --- Lógica do Menu Lateral --- */
 function openMenu() {
     sideMenu.classList.add('active');
@@ -23,11 +30,26 @@ function openMenu() {
 
 function closeMenu() {
     sideMenu.classList.remove('active');
+    if (marmitasSubmenu) {
+        marmitasSubmenu.classList.remove('show');
+        dropdownItem.classList.remove('open');
+    }
 }
 
-// Eventos de Abertura/Fechamento
-if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMenu);
+if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Impede que o clique no botão feche o menu imediatamente
+    openMenu();
+});
+
 if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+
+// FECHAR MENU AO CLICAR FORA
+document.addEventListener('click', (e) => {
+    // Se o menu está aberto E o clique NÃO foi no menu E NEM no botão de abrir
+    if (sideMenu.classList.contains('active') && !sideMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+        closeMenu();
+    }
+});
 
 /* --- Lógica de Ação dos Links do Menu --- */
 
@@ -47,9 +69,35 @@ if (linkTutoria) {
     });
 }
 
-if (linkMarmitas) {
-    linkMarmitas.addEventListener('click', () => {
+if (marmitasToggle) {
+    marmitasToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        marmitasSubmenu.classList.toggle('show');
+        dropdownItem.classList.toggle('open');
+    });
+}
+
+if (subFdc) {
+    subFdc.addEventListener('click', (e) => {
+        e.preventDefault();
         closeMenu();
+        openModal('Combo Favoritos do Chef');
+    });
+}
+
+if (subOdn) {
+    subOdn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMenu();
+        openModal('Combo Orgulho da Nutri');
+    });
+}
+
+if (subDad) {
+    subDad.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMenu();
+        openModal('Combo Dia a Dia');
     });
 }
 
@@ -62,7 +110,6 @@ menuContactBtns.forEach(btn => {
 function openModal(serviceName) {
     currentService = serviceName;
 
-    // Lógica para corrigir o acento "ô" da fonte Lena no Popup
     if (serviceName === "Tutoria Gastronômica") {
         modalTitle.innerHTML = 'Tutoria Gastron<span class="fake-accent">o</span>mica';
     } else {
